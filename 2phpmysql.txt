@@ -1,0 +1,30 @@
+connect.php
+<?php
+$servername = "localhost";  // default XAMPP server
+$username = "root";         // default MySQL username
+$password = "";             // default MySQL password (empty for XAMPP)
+$dbname = "dbmsl";           // any database you have created, e.g. 'test'
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+echo "MySQL Database Connected Successfully!";
+$conn->close();
+?>
+
+index.php
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MySQL Connection Test</title>
+</head>
+<body>
+  <h2>Testing MySQL Database Connectivity</h2>
+  <?php include 'connect.php'; ?>
+</body>
+</html>
