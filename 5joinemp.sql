@@ -16,7 +16,7 @@ JOIN Departments D
 ON E.department_id = D.department_id
 WHERE 
       E.salary > (SELECT AVG(salary) FROM Employee)
-      AND D.department_name LIKE '%IT%';
+      AND D.department_name = 'IT';
 
 -- 2 Employees earning same as the minimum salary across all departments
 SELECT first_name, last_name, salary
@@ -43,5 +43,5 @@ JOIN Locations L ON D.location_id = L.location_id;
 -- 5 Managers with more than 15 years of experience
 SELECT E.first_name, E.last_name, E.hire_date, E.salary
 FROM Employee E
-WHERE E.job_title LIKE '%Manager%'
+WHERE E.job_title = 'Manager'
   AND TIMESTAMPDIFF(YEAR, E.hire_date, CURDATE()) > 15;

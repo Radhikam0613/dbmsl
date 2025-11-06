@@ -12,9 +12,9 @@ DECLARE
 BEGIN
     BEGIN
         SELECT CASE
-                 WHEN FLOOR(MONTHS_BETWEEN(SYSDATE, DoJ)/12) > 10 THEN salary * 1.20
-                 WHEN FLOOR(MONTHS_BETWEEN(SYSDATE, DoJ)/12) > 5 THEN salary * 1.10
-                 ELSE salary * 1.05
+                WHEN FLOOR(MONTHS_BETWEEN(SYSDATE, DoJ)/12) > 10 THEN salary * 1.20
+                WHEN FLOOR(MONTHS_BETWEEN(SYSDATE, DoJ)/12) > 5 THEN salary * 1.10
+                ELSE salary * 1.05
                END
         INTO v_new_salary
         FROM Employee

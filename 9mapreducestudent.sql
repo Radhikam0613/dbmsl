@@ -46,5 +46,6 @@ var reduceAvg = function(k, vals) {
 };
 var finalizeAvg = function(k, v){ return v.sum / v.count; };
 -- v is returned by reduceAvg { sum, count }
+-- The value returned by reduceAvg for each key is passed as v to the finalize function.
 -- finalize: finalizeAvg applies the finalize function after reduction
 db.Student.mapReduce(map3, reduceAvg, { out: { inline: 1 }, finalize: finalizeAvg });

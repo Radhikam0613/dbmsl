@@ -10,10 +10,10 @@ INSERT INTO Branch VALUES (101, 'Pune Branch', 'FC Road, Pune'),(102, 'Mumbai Br
 INSERT INTO Account VALUES (1001, 101, 1, '2023-01-01', 'Saving Account', 60000),(1002, 102, 2, '2022-05-15', 'Current Account', 40000),(1003, 101, 3, '2023-03-20', 'Saving Account', 55000),(1004, 102, 4,'2021-12-10', 'Saving Account', 15000);
 
 -- 1. alter column length 
-ALTER TABLE Customer MODIFY (Email_ID VARCHAR(20));
+ALTER TABLE Customer MODIFY Email_ID VARCHAR(20);
 
 -- 2  set NOT NULL
-ALTER TABLE Customer MODIFY (Email_ID VARCHAR(20) NOT NULL);
+ALTER TABLE Customer MODIFY Email_ID VARCHAR(20) NOT NULL;
 
 -- 3. total customers with balance > 50000
 SELECT COUNT(c.CustID) AS Total_Customers

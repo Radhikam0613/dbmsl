@@ -6,11 +6,8 @@ db.Student.insertMany([{ Student_ID: 1, Student_Name: 'Arya', Department: 'CS', 
       -- pushes names into an array
       -- computes average
 db.Student.aggregate([
-  {
-    $group: {
-      _id: "$Department",
-      Students: { $push: "$Student_Name" },
-      AvgMarks: { $avg: "$Marks" }
+  {$group: { _id: "$Department",  Students: { $push: "$Student_Name" }, 
+                                  AvgMarks: { $avg: "$Marks" }
     }
   }
 ])
@@ -21,21 +18,15 @@ db.Student.aggregate([
 --    "AvgMarks": 90.66666666666667
 --  }
 
-// 2 number of students per department
-      -- $sum: 1 counts the number of documents (students) per group
+-- 2 number of students per department
+-- $sum: 1 counts the number of documents (students) per group
 db.Student.aggregate([
-  {
-    $group: {
-      _id: "$Department",
-      Total_Students: { $sum: 1 }
-    }
-  }
-])
+  {$group: { _id: "$Department", Total_Students: { $sum: 1 }}}])
 
 -- { "_id": "CS", "Total_Students": 3 },
 
-// 3 top student per department
-  -- student with highest marks in each department appears first in that department’s “bucket”
+-- 3 top student per department
+-- student with highest marks in each department appears first in that department’s “bucket”
 db.Student.aggregate( [
   {$sort: { Department: 1, Marks: -1 }},
   {$group: {_id: "$Department",

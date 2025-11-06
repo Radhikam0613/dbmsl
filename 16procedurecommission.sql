@@ -15,7 +15,6 @@ BEGIN
                      WHEN salary < 10000 AND MONTHS_BETWEEN(SYSDATE, DoJ)/12 > 10 THEN salary * 0.0035
                      ELSE salary * 0.0015
                    END;
-  COMMIT;
 END;
 /
 

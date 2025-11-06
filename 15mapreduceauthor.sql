@@ -8,7 +8,6 @@ var mapA = function() {
   emit(this.Author_name, this.Title); 
 };
 -- Returns an array of all titles for that author.
--- 
 var reduceA = function(k, vals) { 
   return vals; 
 };
