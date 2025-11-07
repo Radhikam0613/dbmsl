@@ -32,6 +32,7 @@ SELECT e.employee_id, e.last_name AS employee_last_name,
        e.manager_id, m.manager_last_name
 FROM Employee e
 LEFT JOIN Manager m ON e.manager_id = m.manager_id;
+-- left join necessary to include employee with no manager
 
 -- 5 names and hire date of the employees who were hired after 'Jones'
 SELECT e.first_name, e.last_name, e.hire_date

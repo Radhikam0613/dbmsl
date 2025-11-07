@@ -30,8 +30,7 @@ db.Student.aggregate([
 db.Student.aggregate( [
   {$sort: { Department: 1, Marks: -1 }},
   {$group: {_id: "$Department",
-            Top_Student: { $first: "$Student_Name" },
-            Marks: { $first: "$Marks" }
+            Student: {$first: "$$ROOT"}
     }
   } , { $sort: { Marks: -1 } }
 ] )

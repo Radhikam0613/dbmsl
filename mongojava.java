@@ -79,7 +79,7 @@ public class mongojava {
             DBCollection coll = db.getCollection("Students");
 
             // Just print a message to confirm connection
-            System.out.println("✅ Connected to MongoDB successfully!");
+            System.out.println("Connected to MongoDB successfully!");
             System.out.println("Database: " + db.getName());
             System.out.println("Collection: " + coll.getName());
 

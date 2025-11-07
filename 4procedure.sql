@@ -30,6 +30,8 @@ END;
 
 DECLARE
   rc SYS_REFCURSOR;
+-- %ROWTYPE automatically creates a record with all columns 
+-- of the table (Account) and their exact datatypes.
   rec Account%ROWTYPE;
 BEGIN
   rc := get_high_balance;

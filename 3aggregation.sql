@@ -26,19 +26,17 @@ db.Movies.aggregate([
 -- 3. highest BoxOfficeCollection per Genre, then ascending order of that top number
 -- new field top
 -- top 1 means ascending order for top field
-db.Movies_Data.aggregate([
   -- Sort by Genre and BoxOfficeCollection descending
+db.Movies_Data.aggregate([
   { $sort: { Genre: 1, BoxOfficeCollection: -1 } },
   { $group: { 
       _id: "$Genre",
-      Movie_Name: { $first: "$Movie_Name" },
-      Director: { $first: "$Director" },
-      BoxOfficeCollection: { $first: "$BoxOfficeCollection" }
+      top: { $first: "$$ROOT"}
     }
   },
-  -- Sort final output by BoxOfficeCollection ascending
   { $sort: { BoxOfficeCollection: 1 } }
 ]);
+  -- Sort final output by BoxOfficeCollection ascending
 
 
 -- 4. create index Movie_ID

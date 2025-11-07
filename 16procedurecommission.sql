@@ -26,8 +26,7 @@ SELECT * FROM Employee;
 
 SET SERVEROUTPUT ON;
 
-CREATE OR REPLACE FUNCTION get_dept_manager(p_dept_id IN NUMBER)
-RETURN VARCHAR IS
+CREATE OR REPLACE FUNCTION get_dept_manager(p_dept_id IN NUMBER) RETURN VARCHAR IS
   v_manager_name VARCHAR(100);
 BEGIN
   SELECT emp_name 
@@ -35,14 +34,12 @@ BEGIN
   FROM Employee
   WHERE dept_id = p_dept_id
     AND job_title = 'manager';
-
   RETURN v_manager_name;
 EXCEPTION
   WHEN NO_DATA_FOUND THEN RETURN 'No Manager Found';
   WHEN TOO_MANY_ROWS THEN RETURN 'Multiple Managers Found';
 END;
 /
-
 BEGIN
   DBMS_OUTPUT.PUT_LINE('Manager of dept 10: ' || get_dept_manager(10));
   DBMS_OUTPUT.PUT_LINE('Manager of dept 20: ' || get_dept_manager(20));

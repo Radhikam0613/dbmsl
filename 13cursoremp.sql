@@ -29,12 +29,12 @@ END;
 
 -- 3 Parameterized Cursor displaying salary of employee entered by the user
 DECLARE
-  CURSOR c(emp NUMBER) IS SELECT Salary FROM Employee WHERE Emp_id = emp;
-  v_sal NUMBER;
+  v_empid NUMBER := &empid;  -- ask for input once
+  CURSOR c(emp NUMBER) IS 
+    SELECT Salary FROM Employee WHERE Emp_id = emp;
 BEGIN
-  OPEN c(&Enter_the_employee_ID);
-  FETCH c INTO v_sal;
-  CLOSE c;
-  DBMS_OUTPUT.PUT_LINE('Salary of Employee 101: ' || v_sal);
+  FOR r IN c(v_empid) LOOP
+    DBMS_OUTPUT.PUT_LINE('Salary of Employee ' || v_empid || ': ' || r.Salary);
+  END LOOP;
 END;
-/  
+/

@@ -1,8 +1,6 @@
 CREATE TABLE Employee (emp_id INT,first_name VARCHAR(50),last_name VARCHAR(50), designation VARCHAR(50),salary DECIMAL(12,2), dept VARCHAR(50));
 CREATE TABLE Salary_Backup (emp_id INT, old_salary DECIMAL(12,2),new_salary DECIMAL(12,2),salary_difference DECIMAL(12,2));
 
-select * from Salary_Backup;
-select * from Employee;
 
 INSERT INTO Employee VALUES (1, 'Alice', 'Khan', 'Developer', 60000, 'IT');
 INSERT INTO Employee VALUES (2, 'Bob', 'Sharma', 'CEO', 200000, 'Management');

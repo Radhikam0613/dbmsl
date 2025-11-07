@@ -21,9 +21,7 @@ WHERE
 -- 2 Employees earning same as the minimum salary across all departments
 SELECT first_name, last_name, salary
 FROM Employee
-WHERE salary = (
-  SELECT MIN(salary) FROM Employee
-);
+WHERE salary = ( SELECT MIN(salary) FROM Employee);
 
 -- 3 Employees whose salary is above average for their department
 SELECT E.employee_id, E.first_name, E.last_name, E.salary
